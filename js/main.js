@@ -16,3 +16,5 @@ function getRandomFractionNum (randomMinNum, randomMaxNum, digits) {
 
 // console.log(getRandomWholeNum(10, 45));
 // console.log(getRandomFractionNum(14.34, 32.21, 3));
+getRandomWholeNum(10, 45);
+getRandomFractionNum(14.34, 32.21, 2);
