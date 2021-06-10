@@ -3,7 +3,6 @@ const templatePhotos = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
-
 const propertyTypes = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 const timeType = ['12:00', '13:00', '14:00'];
 const featuresList = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
@@ -73,8 +72,8 @@ function generateUser() {
       features: generateFeatures(),
     },
     location: {
-      lat: location.x,
-      lng: location.y,
+      lat: location,
+      lng: location,
     },
   };
 }
