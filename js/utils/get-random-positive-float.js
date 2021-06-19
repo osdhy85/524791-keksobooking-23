@@ -7,5 +7,4 @@ function getRandomWholeNum(randomMinNum, randomMaxNum) {
   return 'Error';
 }
 
-getRandomWholeNum();
 export default getRandomWholeNum;

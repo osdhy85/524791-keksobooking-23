@@ -5,5 +5,4 @@ function getRandomFractionNum(randomMinNum, randomMaxNum, digits) {
   return 'Error';
 }
 
-getRandomFractionNum();
 export default getRandomFractionNum;

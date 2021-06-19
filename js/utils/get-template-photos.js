@@ -1,4 +1,4 @@
-import getRandomWholeNum from './utils/get-random-positive-float.js';
+import getRandomWholeNum from './get-random-positive-float.js';
 
 const templatePhotos = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
@@ -16,5 +16,4 @@ function generatePhotos() {
   return photos;
 }
 
-generatePhotos();
 export default generatePhotos;
