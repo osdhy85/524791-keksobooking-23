@@ -1,5 +1,5 @@
-import getRandomWholeNum from '../utils/get-random-positive-float.js';
-import getRandomFractionNum from '../utils/get-random-positive-integer.js';
+import getRandomWholeNum from '../utils/get-random-positive-integer.js';
+import getRandomFractionNum from '../utils/get-random-positive-float.js';
 import generateRandomArrayItem from '../utils/get-random-array-item.js';
 import generateFeatures from '../utils/get-random-features.js';
 import generatePhotos from '../utils/get-template-photos.js';

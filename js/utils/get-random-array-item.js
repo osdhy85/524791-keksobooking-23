@@ -1,4 +1,4 @@
-import getRandomWholeNum from './get-random-positive-float.js';
+import getRandomWholeNum from './get-random-positive-integer.js';
 
 function generateRandomArrayItem(array) {
   const randomIndex = getRandomWholeNum(0, array.length - 1);

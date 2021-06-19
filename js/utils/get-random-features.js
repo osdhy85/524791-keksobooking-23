@@ -1,4 +1,4 @@
-import getRandomWholeNum from './get-random-positive-float.js';
+import getRandomWholeNum from './get-random-positive-integer.js';
 
 const featuresList = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
 
