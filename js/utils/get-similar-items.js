@@ -41,4 +41,5 @@ function getSimilarItems(card) {
   return cloneElement;
 }
 
-// mapCanvas.appendChild(getSimilarItems(cardData));
+mapCanvas.appendChild(getSimilarItems(cardData));
+getSimilarItems();
