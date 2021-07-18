@@ -10,14 +10,22 @@ const types = {'flat': 'Квартира',
   'palace': 'Дворец',
   'hotel': 'Отель'};
 
+// Set content function
+function setContent(element, content) {
+  if (content!=='') {element.textContent=content;}
+  else {element.classList.add('hidden');}
+}
+
 function getSimilarItems(card) {
   const cloneElement = template.cloneNode(true); //клонировать элемент
-  cloneElement.querySelector('.popup__title').textContent = card.offer.title;
-  cloneElement.querySelector('.popup__text--address').textContent = card.offer.address;
-  cloneElement.querySelector('.popup__text--price').textContent = `${card.offer.price} ₽/ночь`;
-  cloneElement.querySelector('.popup__type').textContent = types[card.offer.type];
-  cloneElement.querySelector('.popup__text--capacity').textContent = `${card.offer.rooms} комнаты для ${card.offer.guests} гостей`;
-  cloneElement.querySelector('.popup__text--time').textContent = `Заезд после ${card.offer.checkin}, выезд до ${card.offer.checkout}`;
+  setContent(cloneElement.querySelector('.popup__title'),card.offer.title);
+  setContent(cloneElement.querySelector('.popup__text--address'),card.offer.address);
+  setContent(cloneElement.querySelector('.popup__text--price'),`${card.offer.price} ₽/ночь`);
+  setContent(cloneElement.querySelector('.popup__type'),types[card.offer.type]);
+  setContent(cloneElement.querySelector('.popup__text--capacity'),`${card.offer.rooms} комнаты для ${card.offer.guests} гостей`);
+  setContent(cloneElement.querySelector('.popup__text--time'),`Заезд после ${card.offer.checkin}, выезд до ${card.offer.checkout}`);
+  setContent(cloneElement.querySelector('.popup__description'),card.offer.description);
+
   // debugger;
   card.offer.features.forEach((element) => {
     cloneElement.querySelector(`.popup__feature--${element}`).classList.add('hidden');
@@ -28,10 +36,9 @@ function getSimilarItems(card) {
     cloneElement.querySelector('.popup__photos').appendChild(img);
   });
   cloneElement.querySelector('.popup__photo').classList.add('hidden');
-  cloneElement.querySelector('.popup__description').textContent = card.offer.description;
   cloneElement.querySelector('.popup__avatar').src = card.author.avatar;
 
   return cloneElement;
 }
 
-mapCanvas.appendChild(getSimilarItems(cardData));
+// mapCanvas.appendChild(getSimilarItems(cardData));
