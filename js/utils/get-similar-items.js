@@ -42,4 +42,3 @@ function getSimilarItems(card) {
 }
 
 mapCanvas.appendChild(getSimilarItems(cardData));
-getSimilarItems();
