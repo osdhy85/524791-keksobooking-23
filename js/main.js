@@ -1,4 +1,6 @@
 import generateUser from './data/generate-user.js';
+import './utils/get-similar-items.js';
+import './utils/get-form-fields.js';
 
 function getUsersList(countUsers) {
   const usersList = [];
