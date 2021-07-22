@@ -117,20 +117,29 @@ propertyElement.addEventListener('change', syncPrice);
 getMinValueForAppartment();
 
 const adTitle = document.querySelector('#title');
+const MIN_TITLE_LENGTH = 30;
+const MAX_TITLE_LENGTH = 100;
 
-function validateAdForm(event) {
-  // eslint-disable-next-line no-console
-  console.log('Validate');
-  if (adTitle.value.length < 30) {
-    // eslint-disable-next-line no-alert
-    alert('! short title');
-    event.preventDefault();
+adTitle.addEventListener('input', () => {
+  const titleValueLength = adTitle.value.length;
+  if (titleValueLength < MIN_TITLE_LENGTH) {
+    adTitle.setCustomValidity(`Заголовок должен состоять минимум из ${MIN_TITLE_LENGTH} символов. Осталось ${MIN_TITLE_LENGTH - titleValueLength}.`);
+  } else if (titleValueLength > MAX_TITLE_LENGTH) {
+    adTitle.setCustomValidity(`Заголовок не должен превышать ${MAX_TITLE_LENGTH} символов.`);
+  } else {
+    adTitle.setCustomValidity('');
   }
-  if (adTitle.value.length > 100) {
-    // eslint-disable-next-line no-alert
-    alert('! long title');
-  }
-  // return false;
-}
+  adTitle.reportValidity();
+});
 
-document.querySelector('.ad-form').addEventListener('submit', validateAdForm);
+const MAX_PRICE = 1000000;
+priceElement.addEventListener('input',  () => {
+  if (priceElement.value < priceElement.min) {
+    priceElement.setCustomValidity(`Цена не может быть меньше ${priceElement.min}.`);
+  } else if (priceElement.value > MAX_PRICE) {
+    priceElement.setCustomValidity(`Цена не должна превышать ${MAX_PRICE}.`);
+  } else {
+    priceElement.setCustomValidity('');
+  }
+  priceElement.reportValidity();
+});
