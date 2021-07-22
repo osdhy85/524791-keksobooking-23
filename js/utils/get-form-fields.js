@@ -30,6 +30,7 @@ function activatePage() {
   enanbleAddFilter();
 }
 
+// eslint-disable-next-line no-unused-vars
 function getMinValueForAppartment() {
   const typeAppartment = document.querySelector('#type').value;
   if (typeAppartment === 'flat') {
@@ -71,11 +72,12 @@ function syncRoomGuest (event) {
   });
   // rooms
   // console.log("Rooms: ", event.target.value);
-  roomsUsers[event.target.value].forEach((item) => {
+  roomsUsers[event.target.value || '1'].forEach((item) => {
     guestsElement.querySelector(`option[value="${item}"]`).disabled = false;
   });
   // select first element
-  guestsElement.value =  roomsUsers[event.target.value][0];
+  guestsElement.value = roomsUsers[event.target.value][0];
+  syncRoomGuest();
 }
 
 roomsNumberElement.addEventListener('change', syncRoomGuest);
@@ -114,7 +116,7 @@ propertyElement.addEventListener('change', syncPrice);
 
 // activatePage();
 // deactivatePage();
-getMinValueForAppartment();
+// getMinValueForAppartment();
 
 const adTitle = document.querySelector('#title');
 const MIN_TITLE_LENGTH = 30;
