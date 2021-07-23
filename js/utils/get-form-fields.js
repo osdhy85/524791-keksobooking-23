@@ -72,13 +72,13 @@ function syncRoomGuest (event) {
   });
   // rooms
   // console.log("Rooms: ", event.target.value);
-  roomsUsers[event.target.value || '1'].forEach((item) => {
+  roomsUsers[event ? event.target.value : 1].forEach((item) => {
     guestsElement.querySelector(`option[value="${item}"]`).disabled = false;
   });
   // select first element
-  guestsElement.value = roomsUsers[event.target.value][0];
-  syncRoomGuest();
+  guestsElement.value = roomsUsers[event ? event.target.value : 1][0];
 }
+syncRoomGuest();
 
 roomsNumberElement.addEventListener('change', syncRoomGuest);
 
