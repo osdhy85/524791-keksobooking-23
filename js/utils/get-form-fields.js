@@ -98,6 +98,7 @@ timeoutElement.addEventListener('change', syncTime);
 
 const priceElement = document.querySelector('#price');
 const propertyElement = document.querySelector('#type');
+// const propertyElement = document.querySelector('#address');
 
 const minPriceTypes = {
   'flat': 1000,
@@ -116,7 +117,7 @@ propertyElement.addEventListener('change', syncPrice);
 
 // activatePage();
 // deactivatePage();
-// getMinValueForAppartment();
+getMinValueForAppartment();
 
 const adTitle = document.querySelector('#title');
 const MIN_TITLE_LENGTH = 30;
@@ -145,3 +146,5 @@ priceElement.addEventListener('input',  () => {
   }
   priceElement.reportValidity();
 });
+
+export default activatePage;

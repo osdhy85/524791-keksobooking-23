@@ -1,7 +1,7 @@
 import generateUser from '../data/generate-user.js';
-
+// eslint-disable-next-line no-unused-vars
 const cardData = generateUser();
-const mapCanvas = document.querySelector('#map-canvas');
+// const mapCanvas = document.querySelector('#map-canvas');
 const template = document.querySelector('#card').content.querySelector('.popup'); //коллекция dom-элементов
 
 const types = {'flat': 'Квартира',
@@ -16,6 +16,7 @@ function setContent(element, content) {
   else {element.classList.add('hidden');}
 }
 
+// eslint-disable-next-line no-unused-vars
 function getSimilarItems(card) {
   const cloneElement = template.cloneNode(true); //клонировать элемент
   setContent(cloneElement.querySelector('.popup__title'),card.offer.title);
@@ -41,4 +42,4 @@ function getSimilarItems(card) {
   return cloneElement;
 }
 
-mapCanvas.appendChild(getSimilarItems(cardData));
+// mapCanvas.appendChild(getSimilarItems(cardData));
