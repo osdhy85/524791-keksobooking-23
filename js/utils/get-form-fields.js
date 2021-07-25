@@ -147,4 +147,73 @@ priceElement.addEventListener('input',  () => {
   priceElement.reportValidity();
 });
 
+// eslint-disable-next-line no-unused-vars
+const showAlertPopup = (message) => {
+  // alert(message);
+  // const alertContainer = document.createElement('div');
+  // alertContainer.style.zIndex = 1000;
+  // alertContainer.style.position = 'absolute';
+  // alertContainer.style.left = 0;
+  // alertContainer.style.bottom = '400px';
+  // alertContainer.style.right = 0;
+  // alertContainer.style.padding = '100px 3px';
+  // alertContainer.style.fontSize = '30px';
+  // alertContainer.style.color = 'white';
+  // alertContainer.style.textAlign = 'center';
+  // alertContainer.style.backgroundColor = 'red';
+
+  // alertContainer.textContent = message;
+
+  // document.body.append(alertContainer);
+
+  // setTimeout(() => {
+  //   alertContainer.remove();
+  // }, 10);
+};
+
+// eslint-disable-next-line no-unused-vars
+function sendData(event) {
+  // const data = {"test": 123};
+  const urlData = 'https://23.javascript.pages.academy/keksobooking';
+  // const data = {
+  //     "title": adTitle.value,
+  //     "price": priceElement.value,
+  //     "type": propertyElement.value,
+  //     "timein": timeinElement.value,
+  //     "timeout": timeoutElement.value,
+  //     "room_number": roomsNumberElement.value,
+  //     "capacity": guestsElement.value,
+  // };
+  const data = new FormData(document.querySelector('.ad-form'));
+  fetch(urlData, {
+    method: 'POST',
+    'Content-Type': 'multipart/form-data',
+    body: data, //  JSON.stringify(data), // body data type must match "Content-Type" header
+  }).then((response) => {                      // first then()
+    if(response.ok)
+    {
+      return response.text();
+    }
+
+    throw new Error('Something went wrong.');
+  })
+    .then((text) => {                          // second then()
+      // eslint-disable-next-line no-console
+      console.log('Request successful', text);
+      document.querySelector('.ad-form').reset();
+    })
+    .catch((error) => {                        // catch
+      // eslint-disable-next-line no-console
+      console.log('Request failed', error);
+      showAlertPopup('Не удалось отправить форму. Попробуйте ещё раз');
+    });
+
+}
+
+document.querySelector('.ad-form').addEventListener( 'submit', ( event ) => {
+  event.preventDefault();
+  sendData();
+});
+
+
 export default activatePage;
